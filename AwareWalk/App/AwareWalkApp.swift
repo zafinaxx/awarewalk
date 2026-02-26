@@ -1,5 +1,4 @@
 import SwiftUI
-import RealityKit
 
 @main
 struct AwareWalkApp: App {

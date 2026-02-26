@@ -5,7 +5,9 @@ import Observation
 
 @Observable
 final class NavigationService: NSObject, CLLocationManagerDelegate {
+    @ObservationIgnored
     private let locationManager = CLLocationManager()
+    @ObservationIgnored
     private var currentRoute: MKRoute?
 
     var navigationState = NavigationState()
@@ -28,12 +30,10 @@ final class NavigationService: NSObject, CLLocationManagerDelegate {
 
     func startLocationUpdates() {
         locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
     }
 
     func stopLocationUpdates() {
         locationManager.stopUpdatingLocation()
-        locationManager.stopUpdatingHeading()
     }
 
     // MARK: - 搜索
@@ -141,10 +141,6 @@ final class NavigationService: NSObject, CLLocationManagerDelegate {
         if navigationState.isActive {
             updateDistanceAndETA(from: location)
         }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        navigationState.currentHeading = newHeading.trueHeading
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

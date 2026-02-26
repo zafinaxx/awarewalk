@@ -50,15 +50,13 @@ struct HUDTheme: Identifiable, Codable, Equatable {
         )
     }
 
-    var alertColor: (AlertLevel) -> Color {
-        { level in
-            switch level {
-            case .none: .clear
-            case .info: Color(hex: self.alertInfoHex)
-            case .caution: Color(hex: self.alertCautionHex)
-            case .warning: Color(hex: self.alertWarningHex)
-            case .critical: Color(hex: self.alertCriticalHex)
-            }
+    func alertColor(for level: AlertLevel) -> Color {
+        switch level {
+        case .none: .clear
+        case .info: Color(hex: alertInfoHex)
+        case .caution: Color(hex: alertCautionHex)
+        case .warning: Color(hex: alertWarningHex)
+        case .critical: Color(hex: alertCriticalHex)
         }
     }
 }

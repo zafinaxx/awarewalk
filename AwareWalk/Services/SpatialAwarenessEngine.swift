@@ -6,8 +6,11 @@ import Observation
 /// 空间感知引擎 — 使用 SceneReconstruction 检测周边物体并评估威胁
 @Observable
 final class SpatialAwarenessEngine {
+    @ObservationIgnored
     private var session: ARKitSession?
+    @ObservationIgnored
     private var sceneReconstruction: SceneReconstructionProvider?
+    @ObservationIgnored
     private var worldTracking: WorldTrackingProvider?
 
     var detectedObjects: [RadarPoint] = []

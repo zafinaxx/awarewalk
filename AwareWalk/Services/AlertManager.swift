@@ -10,10 +10,12 @@ final class AlertManager {
     var alertMessage: String = ""
     var isAlertVisible = false
 
+    @ObservationIgnored
     private var audioPlayer: AVAudioPlayer?
+    @ObservationIgnored
     private var alertCooldown: [AlertLevel: Date] = [:]
 
-    // 预警冷却时间（防止频繁触发）
+    @ObservationIgnored
     private let cooldownIntervals: [AlertLevel: TimeInterval] = [
         .info: 10,
         .caution: 5,

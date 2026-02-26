@@ -34,15 +34,16 @@ final class SubscriptionManager: Codable {
         try await Product.products(for: Self.allProductIDs)
     }
 
-    // MARK: - 购买
+    // MARK: - 购买（visionOS 需要 window scene 来展示购买确认）
 
-    func purchase(_ product: Product) async throws -> Bool {
-        let result = try await product.purchase()
+    @MainActor
+    func purchase(_ product: Product, in scene: UIWindowScene) async throws -> Bool {
+        let result = try await product.purchase(confirmIn: scene)
 
         switch result {
         case .success(let verification):
             let transaction = try checkVerified(verification)
-            await updateSubscriptionStatus(transaction: transaction)
+            updateSubscriptionStatus(transaction: transaction)
             await transaction.finish()
             return true
 
@@ -59,17 +60,18 @@ final class SubscriptionManager: Codable {
 
     // MARK: - 购买主题族
 
-    func purchaseThemeFamily(_ familyId: String) async throws -> Bool {
+    @MainActor
+    func purchaseThemeFamily(_ familyId: String, in scene: UIWindowScene) async throws -> Bool {
         let productId = Self.themeFamilyPrefix + familyId
         let products = try await Product.products(for: [productId])
         guard let product = products.first else { return false }
-        return try await purchase(product)
+        return try await purchase(product, in: scene)
     }
 
     // MARK: - 恢复购买
 
     func restorePurchases() async {
-        for await result in Transaction.currentEntitlements {
+        for await result in StoreKit.Transaction.currentEntitlements {
             if let transaction = try? checkVerified(result) {
                 await updateSubscriptionStatus(transaction: transaction)
             }
@@ -79,7 +81,7 @@ final class SubscriptionManager: Codable {
     // MARK: - 监听交易更新
 
     func listenForTransactions() async {
-        for await result in Transaction.updates {
+        for await result in StoreKit.Transaction.updates {
             if let transaction = try? checkVerified(result) {
                 await updateSubscriptionStatus(transaction: transaction)
                 await transaction.finish()
@@ -99,7 +101,7 @@ final class SubscriptionManager: Codable {
     }
 
     @MainActor
-    private func updateSubscriptionStatus(transaction: Transaction) {
+    private func updateSubscriptionStatus(transaction: StoreKit.Transaction) {
         switch transaction.productID {
         case Self.monthlyID:
             isSubscribed = true

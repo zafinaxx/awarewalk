@@ -96,7 +96,7 @@ struct AlertOverlay: View {
     // MARK: - 颜色
 
     private var alertColor: Color {
-        theme.alertColor(level)
+        theme.alertColor(for: level)
     }
 
     private var alertTextColor: Color {
@@ -129,8 +129,8 @@ struct DirectionArrow: View {
     var body: some View {
         Image(systemName: "arrowtriangle.up.fill")
             .font(.system(size: arrowSize))
-            .foregroundStyle(theme.alertColor(level))
-            .shadow(color: theme.alertColor(level).opacity(0.8), radius: 8)
+            .foregroundStyle(theme.alertColor(for: level))
+            .shadow(color: theme.alertColor(for: level).opacity(0.8), radius: 8)
             .scaleEffect(scale)
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.5).repeatForever()) {
