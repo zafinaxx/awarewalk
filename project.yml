@@ -1,0 +1,33 @@
+name: AwareWalk
+options:
+  bundleIdPrefix: com.jingjing
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: 1
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  AwareWalk:
+    type: application
+    platform: visionOS
+    deploymentTarget: "2.0"
+    sources:
+      - path: AwareWalk
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jingjing.AwareWalk
+        INFOPLIST_FILE: AwareWalk/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: ""
+        SUPPORTED_PLATFORMS: "xros xrsimulator"
+        SDKROOT: xros
+    info:
+      path: AwareWalk/Info.plist
+      properties:
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: true

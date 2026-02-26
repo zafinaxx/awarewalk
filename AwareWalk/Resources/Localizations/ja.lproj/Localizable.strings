@@ -1,0 +1,174 @@
+/* AwareWalk - 日本語ローカライゼーション */
+
+// MARK: - アプリ
+"hud_subtitle" = "あなたの空間安全パートナー";
+"hud_start" = "HUDを起動";
+"hud_stop" = "HUDを停止";
+
+// MARK: - ステータス
+"status_gps" = "GPS";
+"status_radar" = "レーダー";
+"status_alerts" = "警報";
+
+// MARK: - アクション
+"action_themes" = "テーマ";
+"action_navigate" = "ナビ";
+"action_settings" = "設定";
+"cancel" = "キャンセル";
+
+// MARK: - HUD
+"hud_standby_title" = "安全モード作動中";
+"hud_standby_subtitle" = "周囲を監視しています";
+
+// MARK: - アラートレベル
+"alert_none" = "安全";
+"alert_info" = "情報";
+"alert_caution" = "注意";
+"alert_warning" = "警告";
+"alert_critical" = "危険";
+
+// MARK: - 検出物体
+"alert_vehicle" = "車両";
+"alert_bicycle" = "自転車";
+"alert_pedestrian" = "歩行者";
+"alert_obstacle" = "障害物";
+"alert_object" = "物体";
+
+// MARK: - 方向
+"dir_front" = "前方";
+"dir_front_right" = "右前方";
+"dir_right" = "右側";
+"dir_back_right" = "右後方";
+"dir_back" = "後方";
+"dir_back_left" = "左後方";
+"dir_left" = "左側";
+"dir_front_left" = "左前方";
+"dir_unknown" = "不明";
+
+// MARK: - ナビゲーション
+"nav_straight" = "直進";
+"nav_slight_left" = "やや左";
+"nav_slight_right" = "やや右";
+"nav_turn_left" = "左折";
+"nav_turn_right" = "右折";
+"nav_sharp_left" = "鋭角左折";
+"nav_sharp_right" = "鋭角右折";
+"nav_u_turn" = "Uターン";
+"nav_arrive" = "到着";
+"nav_arriving" = "目的地に到着します";
+
+// MARK: - 感度
+"alert_sensitivity_low" = "低";
+"alert_sensitivity_normal" = "標準";
+"alert_sensitivity_high" = "高";
+
+// MARK: - テーマギャラリー
+"theme_gallery_title" = "テーマギャラリー";
+"theme_unlock_all" = "すべて解除";
+"theme_unlock_family" = "パック解除";
+"theme_count_%lld" = "%lldテーマ";
+"theme_try" = "試す";
+"theme_buy" = "購入";
+"theme_apply" = "適用";
+"theme_trial_remaining_%lld" = "残り%lld分の試用";
+"theme_trial_expired" = "試用期間終了";
+
+// MARK: - テーマファミリー
+"theme_family_apple" = "Apple";
+"theme_family_cyberpunk" = "サイバーパンク";
+"theme_family_japanese" = "和風";
+"theme_family_european" = "欧州古典";
+"theme_family_kawaii" = "かわいい";
+"theme_family_military" = "タクティカル";
+"theme_family_retro" = "レトロフューチャー";
+"theme_family_zen" = "禅";
+"theme_family_neon" = "ネオンシティ";
+"theme_family_nordic" = "北欧";
+
+// MARK: - テーマ購入
+"theme_includes" = "含まれるもの";
+"theme_feature_colors" = "カスタムカラーシステム";
+"theme_feature_fonts" = "ユニークなタイポグラフィ";
+"theme_feature_radar" = "テーマ別レーダースタイル";
+"theme_feature_animations" = "カスタムアニメーション";
+"theme_feature_updates" = "将来のアップデート無料";
+"theme_purchase_%@" = "購入 - ¥%@";
+
+// MARK: - テーマ説明
+"theme_family_description_apple" = "Appleのデザイン言語に従った、クリーンでエレガントなデザイン。";
+"theme_family_description_cyberpunk" = "ネオンに彩られた未来的HUD、グリッチエフェクトとタクティカルディスプレイ。";
+"theme_family_description_japanese" = "桜、墨絵、浮世絵など、日本の伝統美にインスパイアされたデザイン。";
+"theme_family_description_european_classical" = "ヨーロッパの宮殿、大理石のホール、王室の遺産にインスパイアされた装飾的デザイン。";
+"theme_family_description_kawaii" = "かわいい動物マスコットとパステルカラーの愛らしいテーマ。";
+"theme_family_description_military" = "精密機器とステルスモードを備えたミリタリーグレードのタクティカルHUD。";
+"theme_family_description_retro_future" = "80年代シンセウェイブ、VHSグリッチ、レトロターミナル美学。";
+"theme_family_description_minimalist_zen" = "透明感、余白、静寂に焦点を当てた超ミニマルデザイン。";
+"theme_family_description_neon_city" = "東京、ソウル、ニューヨークのナイトライフにインスパイアされた鮮やかなテーマ。";
+"theme_family_description_nordic" = "オーロラ、霜の結晶、白夜にインスパイアされたデザイン。";
+
+// MARK: - Proサブスクリプション
+"pro_title" = "AwareWalk Pro";
+"pro_subtitle" = "完全な空間安全体験をアンロック";
+"pro_all_themes" = "全テーマアンロック";
+"pro_all_themes_desc" = "10スタイルファミリー、32テーマすべてにアクセス";
+"pro_advanced_radar" = "高度なレーダー";
+"pro_advanced_radar_desc" = "検出範囲の拡大と物体分類の強化";
+"pro_smart_alerts" = "スマートアラート";
+"pro_smart_alerts_desc" = "AI搭載の状況に応じた安全警告";
+"pro_multi_maps" = "マルチマップ対応";
+"pro_multi_maps_desc" = "Apple Maps、Google Maps、ローカルマップ対応";
+"pro_priority_updates" = "優先アップデート";
+"pro_priority_updates_desc" = "新機能とテーマへの早期アクセス";
+
+// MARK: - 価格
+"price_monthly" = "月額";
+"price_yearly" = "年額";
+"price_lifetime" = "永久";
+"price_per_month" = "月額";
+"price_per_year" = "年額";
+"price_once" = "買い切り";
+"price_save_30" = "30%お得";
+"price_restore" = "購入の復元";
+
+// MARK: - 設定
+"settings_title" = "設定";
+"settings_hud" = "HUD表示";
+"settings_radar" = "360°レーダー";
+"settings_night_mode" = "ナイトモード";
+"settings_alerts" = "安全アラート";
+"settings_sensitivity" = "感度";
+"settings_sound" = "アラート音";
+"settings_haptic" = "触覚フィードバック";
+"settings_navigation" = "ナビゲーション";
+"settings_map_source" = "マップソース";
+"settings_map_source_detail" = "お好みのマッププロバイダーを選択";
+"settings_voice_guidance" = "音声ガイダンス";
+"settings_voice_detail" = "音声ガイダンス設定";
+"settings_appearance" = "外観";
+"settings_current_theme" = "現在のテーマ";
+"settings_custom_themes" = "カスタムテーマ";
+"settings_custom_theme_detail" = "独自のテーマをアップロード";
+"settings_subscription" = "サブスクリプション";
+"settings_status" = "ステータス";
+"settings_upgrade_pro" = "Proにアップグレード";
+"settings_restore" = "購入の復元";
+"settings_about" = "このアプリについて";
+"settings_version" = "バージョン";
+"settings_privacy" = "プライバシーポリシー";
+"settings_terms" = "利用規約";
+"settings_support" = "サポートに連絡";
+
+// MARK: - オンボーディング
+"onboarding_welcome_title" = "AwareWalkへようこそ";
+"onboarding_welcome_subtitle" = "Vision Proのための空間安全パートナー。リアルタイムの周囲認識で、自信を持って歩きましょう。";
+"onboarding_radar_title" = "360°空間レーダー";
+"onboarding_radar_subtitle" = "高度な空間センシングエンジンで、周囲の車両、自転車、障害物をリアルタイムに検出します。";
+"onboarding_alert_title" = "スマート安全アラート";
+"onboarding_alert_subtitle" = "視覚、音声、触覚の4段階警告システムで、常にあなたの安全を守ります。";
+"onboarding_nav_title" = "HUDナビゲーション";
+"onboarding_nav_subtitle" = "AR経路矢印付きヘッドアップディスプレイナビゲーション — 道路から目を離す必要はありません。";
+"onboarding_theme_title" = "HUDをカスタマイズ";
+"onboarding_theme_subtitle" = "Apple CleanからサイバーパンクからKawaiiまで、10スタイルファミリー32のユニークなテーマから選択。";
+"onboarding_back" = "戻る";
+"onboarding_next" = "次へ";
+"onboarding_start" = "始めましょう";

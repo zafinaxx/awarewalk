@@ -1,0 +1,174 @@
+/* AwareWalk - English Localizations */
+
+// MARK: - App
+"hud_subtitle" = "Your Spatial Safety Companion";
+"hud_start" = "Activate HUD";
+"hud_stop" = "Deactivate HUD";
+
+// MARK: - Status
+"status_gps" = "GPS";
+"status_radar" = "Radar";
+"status_alerts" = "Alerts";
+
+// MARK: - Actions
+"action_themes" = "Themes";
+"action_navigate" = "Navigate";
+"action_settings" = "Settings";
+"cancel" = "Cancel";
+
+// MARK: - HUD
+"hud_standby_title" = "Safety Mode Active";
+"hud_standby_subtitle" = "Monitoring surroundings";
+
+// MARK: - Alert Levels
+"alert_none" = "Clear";
+"alert_info" = "Info";
+"alert_caution" = "Caution";
+"alert_warning" = "Warning";
+"alert_critical" = "Danger";
+
+// MARK: - Alert Objects
+"alert_vehicle" = "Vehicle";
+"alert_bicycle" = "Bicycle";
+"alert_pedestrian" = "Pedestrian";
+"alert_obstacle" = "Obstacle";
+"alert_object" = "Object";
+
+// MARK: - Directions
+"dir_front" = "Ahead";
+"dir_front_right" = "Front Right";
+"dir_right" = "Right";
+"dir_back_right" = "Rear Right";
+"dir_back" = "Behind";
+"dir_back_left" = "Rear Left";
+"dir_left" = "Left";
+"dir_front_left" = "Front Left";
+"dir_unknown" = "Unknown";
+
+// MARK: - Navigation
+"nav_straight" = "Go Straight";
+"nav_slight_left" = "Slight Left";
+"nav_slight_right" = "Slight Right";
+"nav_turn_left" = "Turn Left";
+"nav_turn_right" = "Turn Right";
+"nav_sharp_left" = "Sharp Left";
+"nav_sharp_right" = "Sharp Right";
+"nav_u_turn" = "U-Turn";
+"nav_arrive" = "Arrived";
+"nav_arriving" = "Arriving at destination";
+
+// MARK: - Alert Sensitivity
+"alert_sensitivity_low" = "Low";
+"alert_sensitivity_normal" = "Normal";
+"alert_sensitivity_high" = "High";
+
+// MARK: - Theme Gallery
+"theme_gallery_title" = "Theme Gallery";
+"theme_unlock_all" = "Unlock All";
+"theme_unlock_family" = "Unlock Pack";
+"theme_count_%lld" = "%lld themes";
+"theme_try" = "Try";
+"theme_buy" = "Buy";
+"theme_apply" = "Apply";
+"theme_trial_remaining_%lld" = "%lld min trial remaining";
+"theme_trial_expired" = "Trial expired";
+
+// MARK: - Theme Families
+"theme_family_apple" = "Apple";
+"theme_family_cyberpunk" = "Cyberpunk";
+"theme_family_japanese" = "Japanese";
+"theme_family_european" = "Classical";
+"theme_family_kawaii" = "Kawaii";
+"theme_family_military" = "Tactical";
+"theme_family_retro" = "Retro Future";
+"theme_family_zen" = "Zen";
+"theme_family_neon" = "Neon City";
+"theme_family_nordic" = "Nordic";
+
+// MARK: - Theme Purchase
+"theme_includes" = "Includes";
+"theme_feature_colors" = "Custom color system";
+"theme_feature_fonts" = "Unique typography";
+"theme_feature_radar" = "Themed radar style";
+"theme_feature_animations" = "Custom animations";
+"theme_feature_updates" = "Free future updates";
+"theme_purchase_%@" = "Purchase - $%@";
+
+// MARK: - Theme Family Descriptions
+"theme_family_description_apple" = "Clean, elegant design following Apple's design language.";
+"theme_family_description_cyberpunk" = "Neon-soaked futuristic HUD with glitch effects and tactical displays.";
+"theme_family_description_japanese" = "Inspired by traditional Japanese aesthetics — sakura, sumi-e, and ukiyo-e.";
+"theme_family_description_european_classical" = "Ornate designs inspired by European palaces, marble halls, and royal heritage.";
+"theme_family_description_kawaii" = "Adorable pastel themes with cute animal mascots and playful animations.";
+"theme_family_description_military" = "Military-grade tactical HUD with precision instruments and stealth modes.";
+"theme_family_description_retro_future" = "Nostalgic 80s synthwave, VHS glitch, and retro terminal aesthetics.";
+"theme_family_description_minimalist_zen" = "Ultra-minimal designs focused on clarity, breathing space, and tranquility.";
+"theme_family_description_neon_city" = "Vibrant city nightlife inspired themes from Tokyo, Seoul, and NYC.";
+"theme_family_description_nordic" = "Northern lights, frost crystals, and midnight sun inspired designs.";
+
+// MARK: - Pro Subscription
+"pro_title" = "AwareWalk Pro";
+"pro_subtitle" = "Unlock the full spatial safety experience";
+"pro_all_themes" = "All Themes Unlocked";
+"pro_all_themes_desc" = "Access all 32 themes across 10 style families";
+"pro_advanced_radar" = "Advanced Radar";
+"pro_advanced_radar_desc" = "Enhanced detection range and object classification";
+"pro_smart_alerts" = "Smart Alerts";
+"pro_smart_alerts_desc" = "AI-powered contextual safety warnings";
+"pro_multi_maps" = "Multi-Map Support";
+"pro_multi_maps_desc" = "Apple Maps, Google Maps, and local map providers";
+"pro_priority_updates" = "Priority Updates";
+"pro_priority_updates_desc" = "Early access to new features and themes";
+
+// MARK: - Pricing
+"price_monthly" = "Monthly";
+"price_yearly" = "Yearly";
+"price_lifetime" = "Lifetime";
+"price_per_month" = "per month";
+"price_per_year" = "per year";
+"price_once" = "one-time purchase";
+"price_save_30" = "SAVE 30%";
+"price_restore" = "Restore Purchases";
+
+// MARK: - Settings
+"settings_title" = "Settings";
+"settings_hud" = "HUD Display";
+"settings_radar" = "360° Radar";
+"settings_night_mode" = "Night Mode";
+"settings_alerts" = "Safety Alerts";
+"settings_sensitivity" = "Sensitivity";
+"settings_sound" = "Alert Sounds";
+"settings_haptic" = "Haptic Feedback";
+"settings_navigation" = "Navigation";
+"settings_map_source" = "Map Source";
+"settings_map_source_detail" = "Choose your preferred map provider";
+"settings_voice_guidance" = "Voice Guidance";
+"settings_voice_detail" = "Voice guidance settings";
+"settings_appearance" = "Appearance";
+"settings_current_theme" = "Current Theme";
+"settings_custom_themes" = "Custom Themes";
+"settings_custom_theme_detail" = "Upload your own theme";
+"settings_subscription" = "Subscription";
+"settings_status" = "Status";
+"settings_upgrade_pro" = "Upgrade to Pro";
+"settings_restore" = "Restore Purchases";
+"settings_about" = "About";
+"settings_version" = "Version";
+"settings_privacy" = "Privacy Policy";
+"settings_terms" = "Terms of Service";
+"settings_support" = "Contact Support";
+
+// MARK: - Onboarding
+"onboarding_welcome_title" = "Welcome to AwareWalk";
+"onboarding_welcome_subtitle" = "Your spatial safety companion for Vision Pro. Walk confidently with real-time awareness of your surroundings.";
+"onboarding_radar_title" = "360° Spatial Radar";
+"onboarding_radar_subtitle" = "Detect vehicles, cyclists, and obstacles around you in real-time with our advanced spatial sensing engine.";
+"onboarding_alert_title" = "Smart Safety Alerts";
+"onboarding_alert_subtitle" = "Four-level warning system with visual, audio, and haptic alerts to keep you safe at all times.";
+"onboarding_nav_title" = "HUD Navigation";
+"onboarding_nav_subtitle" = "Heads-up display navigation with AR path arrows — never take your eyes off the road.";
+"onboarding_theme_title" = "Personalize Your HUD";
+"onboarding_theme_subtitle" = "Choose from 10 style families and 32 unique themes — from Apple Clean to Cyberpunk to Kawaii.";
+"onboarding_back" = "Back";
+"onboarding_next" = "Next";
+"onboarding_start" = "Get Started";
