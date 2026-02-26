@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 import Observation
 
-/// 预警管理器 — 整合视觉、音频、触觉多通道预警
+@MainActor
 @Observable
 final class AlertManager {
     var currentLevel: AlertLevel = .none
@@ -14,7 +14,6 @@ final class AlertManager {
     private var audioPlayer: AVAudioPlayer?
     @ObservationIgnored
     private var alertCooldown: [AlertLevel: Date] = [:]
-
     @ObservationIgnored
     private let cooldownIntervals: [AlertLevel: TimeInterval] = [
         .info: 10,
@@ -50,7 +49,8 @@ final class AlertManager {
         withAnimation(.easeOut(duration: 0.3)) {
             isAlertVisible = false
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .milliseconds(300))
             self?.currentLevel = .none
             self?.alertMessage = ""
         }
@@ -112,7 +112,8 @@ final class AlertManager {
         case .critical: 8
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + duration) { [weak self] in
+        Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .seconds(duration))
             if self?.currentLevel == level {
                 self?.dismissAlert()
             }

@@ -8,38 +8,27 @@ struct SettingsView: View {
 
         NavigationStack {
             Form {
-                hudSection(state: state)
-                alertSection(state: state)
+                Section("settings_hud") {
+                    Toggle("settings_radar", isOn: $state.radarEnabled)
+                    Toggle("settings_night_mode", isOn: $state.nightModeEnabled)
+                }
+
+                Section("settings_alerts") {
+                    Picker("settings_sensitivity", selection: $state.alertSensitivity) {
+                        ForEach(AlertSensitivity.allCases, id: \.self) { level in
+                            Text(level.displayName).tag(level)
+                        }
+                    }
+                    Toggle("settings_sound", isOn: $state.soundEnabled)
+                    Toggle("settings_haptic", isOn: $state.hapticEnabled)
+                }
+
                 navigationSection
                 themeSection
                 subscriptionSection
                 aboutSection
             }
             .navigationTitle("settings_title")
-        }
-    }
-
-    // MARK: - HUD 设置
-
-    private func hudSection(state: Bindable<AppState>) -> some View {
-        Section("settings_hud") {
-            Toggle("settings_radar", isOn: state.radarEnabled)
-            Toggle("settings_night_mode", isOn: state.nightModeEnabled)
-        }
-    }
-
-    // MARK: - 预警设置
-
-    private func alertSection(state: Bindable<AppState>) -> some View {
-        Section("settings_alerts") {
-            Picker("settings_sensitivity", selection: state.alertSensitivity) {
-                ForEach(AlertSensitivity.allCases, id: \.self) { level in
-                    Text(level.displayName).tag(level)
-                }
-            }
-
-            Toggle("settings_sound", isOn: state.soundEnabled)
-            Toggle("settings_haptic", isOn: state.hapticEnabled)
         }
     }
 

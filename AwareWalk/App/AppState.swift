@@ -2,6 +2,7 @@ import SwiftUI
 import Observation
 import MapKit
 
+@MainActor
 @Observable
 final class AppState {
     // MARK: - HUD 状态

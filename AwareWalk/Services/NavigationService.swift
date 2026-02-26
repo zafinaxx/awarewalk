@@ -3,8 +3,9 @@ import MapKit
 import CoreLocation
 import Observation
 
+@MainActor
 @Observable
-final class NavigationService: NSObject, CLLocationManagerDelegate {
+final class NavigationService: NSObject, @preconcurrency CLLocationManagerDelegate {
     @ObservationIgnored
     private let locationManager = CLLocationManager()
     @ObservationIgnored
@@ -133,19 +134,23 @@ final class NavigationService: NSObject, CLLocationManagerDelegate {
 
     // MARK: - CLLocationManagerDelegate
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        navigationState.currentLocation = location.coordinate
-        navigationState.speedKmh = max(0, location.speed * 3.6)
-
-        if navigationState.isActive {
-            updateDistanceAndETA(from: location)
+        Task { @MainActor in
+            navigationState.currentLocation = location.coordinate
+            navigationState.speedKmh = max(0, location.speed * 3.6)
+            if navigationState.isActive {
+                updateDistanceAndETA(from: location)
+            }
         }
     }
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        locationAuthorized = manager.authorizationStatus == .authorizedWhenInUse ||
-                            manager.authorizationStatus == .authorizedAlways
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let authorized = manager.authorizationStatus == .authorizedWhenInUse ||
+                         manager.authorizationStatus == .authorizedAlways
+        Task { @MainActor in
+            locationAuthorized = authorized
+        }
     }
 
     private func updateDistanceAndETA(from location: CLLocation) {
@@ -153,7 +158,7 @@ final class NavigationService: NSObject, CLLocationManagerDelegate {
         let destLocation = CLLocation(latitude: destination.latitude, longitude: destination.longitude)
         navigationState.distanceRemaining = location.distance(from: destLocation)
 
-        let speed = max(location.speed, 1.2) // 最低步行速度 1.2 m/s
+        let speed = max(location.speed, 1.2)
         navigationState.estimatedTimeMinutes = Int(navigationState.distanceRemaining / speed / 60)
 
         if navigationState.distanceRemaining < 15 {

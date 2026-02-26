@@ -2,17 +2,15 @@ import SwiftUI
 import StoreKit
 import Observation
 
+@MainActor
 @Observable
-final class SubscriptionManager: Codable {
+final class SubscriptionManager {
     var isSubscribed = false
     var subscriptionType: SubscriptionType = .none
     var expirationDate: Date?
 
-    enum SubscriptionType: String, Codable {
-        case none
-        case monthly
-        case yearly
-        case lifetime
+    enum SubscriptionType: String, CaseIterable {
+        case none, monthly, yearly, lifetime
     }
 
     // MARK: - Product IDs
@@ -20,12 +18,14 @@ final class SubscriptionManager: Codable {
     static let monthlyID = "com.jingjing.AwareWalk.pro.monthly"
     static let yearlyID = "com.jingjing.AwareWalk.pro.yearly"
     static let lifetimeID = "com.jingjing.AwareWalk.pro.lifetime"
-    static let appPurchaseID = "com.jingjing.AwareWalk.app"
-
     static let themeFamilyPrefix = "com.jingjing.AwareWalk.theme."
 
     static var allProductIDs: Set<String> {
         [monthlyID, yearlyID, lifetimeID]
+    }
+
+    init() {
+        loadFromDefaults()
     }
 
     // MARK: - 加载产品
@@ -34,25 +34,19 @@ final class SubscriptionManager: Codable {
         try await Product.products(for: Self.allProductIDs)
     }
 
-    // MARK: - 购买（visionOS 需要 window scene 来展示购买确认）
+    // MARK: - 购买
 
-    @MainActor
     func purchase(_ product: Product, in scene: UIWindowScene) async throws -> Bool {
         let result = try await product.purchase(confirmIn: scene)
 
         switch result {
         case .success(let verification):
             let transaction = try checkVerified(verification)
-            updateSubscriptionStatus(transaction: transaction)
+            applyTransaction(transaction)
             await transaction.finish()
             return true
-
-        case .userCancelled:
+        case .userCancelled, .pending:
             return false
-
-        case .pending:
-            return false
-
         @unknown default:
             return false
         }
@@ -60,7 +54,6 @@ final class SubscriptionManager: Codable {
 
     // MARK: - 购买主题族
 
-    @MainActor
     func purchaseThemeFamily(_ familyId: String, in scene: UIWindowScene) async throws -> Bool {
         let productId = Self.themeFamilyPrefix + familyId
         let products = try await Product.products(for: [productId])
@@ -73,7 +66,7 @@ final class SubscriptionManager: Codable {
     func restorePurchases() async {
         for await result in StoreKit.Transaction.currentEntitlements {
             if let transaction = try? checkVerified(result) {
-                await updateSubscriptionStatus(transaction: transaction)
+                applyTransaction(transaction)
             }
         }
     }
@@ -83,7 +76,7 @@ final class SubscriptionManager: Codable {
     func listenForTransactions() async {
         for await result in StoreKit.Transaction.updates {
             if let transaction = try? checkVerified(result) {
-                await updateSubscriptionStatus(transaction: transaction)
+                applyTransaction(transaction)
                 await transaction.finish()
             }
         }
@@ -91,7 +84,7 @@ final class SubscriptionManager: Codable {
 
     // MARK: - 内部方法
 
-    private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
+    private nonisolated func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
         case .unverified:
             throw SubscriptionError.verificationFailed
@@ -100,8 +93,7 @@ final class SubscriptionManager: Codable {
         }
     }
 
-    @MainActor
-    private func updateSubscriptionStatus(transaction: StoreKit.Transaction) {
+    private func applyTransaction(_ transaction: StoreKit.Transaction) {
         switch transaction.productID {
         case Self.monthlyID:
             isSubscribed = true
@@ -118,28 +110,26 @@ final class SubscriptionManager: Codable {
         default:
             break
         }
+        saveToDefaults()
     }
 
-    // MARK: - Codable
+    // MARK: - UserDefaults 持久化
 
-    enum CodingKeys: String, CodingKey {
-        case isSubscribed, subscriptionType, expirationDate
+    private func saveToDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.set(isSubscribed, forKey: "sub_active")
+        defaults.set(subscriptionType.rawValue, forKey: "sub_type")
+        defaults.set(expirationDate?.timeIntervalSince1970, forKey: "sub_expiry")
     }
 
-    init() {}
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        isSubscribed = try container.decode(Bool.self, forKey: .isSubscribed)
-        subscriptionType = try container.decode(SubscriptionType.self, forKey: .subscriptionType)
-        expirationDate = try container.decodeIfPresent(Date.self, forKey: .expirationDate)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(isSubscribed, forKey: .isSubscribed)
-        try container.encode(subscriptionType, forKey: .subscriptionType)
-        try container.encode(expirationDate, forKey: .expirationDate)
+    private func loadFromDefaults() {
+        let defaults = UserDefaults.standard
+        isSubscribed = defaults.bool(forKey: "sub_active")
+        if let raw = defaults.string(forKey: "sub_type") {
+            subscriptionType = SubscriptionType(rawValue: raw) ?? .none
+        }
+        let expiry = defaults.double(forKey: "sub_expiry")
+        expirationDate = expiry > 0 ? Date(timeIntervalSince1970: expiry) : nil
     }
 }
 

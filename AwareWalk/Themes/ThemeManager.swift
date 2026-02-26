@@ -1,8 +1,9 @@
 import SwiftUI
 import Observation
 
+@MainActor
 @Observable
-final class ThemeManager: Codable {
+final class ThemeManager {
     var activeThemeId: String = "apple_standard"
     var purchasedFamilies: Set<String> = ["apple"]
     var trialRecords: [String: Date] = [:]
@@ -17,6 +18,10 @@ final class ThemeManager: Codable {
 
     var allFamilies: [ThemeStyleFamily] {
         ThemeStyleFamily.allCases
+    }
+
+    init() {
+        loadFromDefaults()
     }
 
     // MARK: - 主题族分组
@@ -41,7 +46,7 @@ final class ThemeManager: Codable {
 
     func startTrial(for theme: HUDTheme) {
         trialRecords[theme.id] = Date()
-        save()
+        saveToDefaults()
     }
 
     func isTrialActive(for theme: HUDTheme) -> Bool {
@@ -64,50 +69,34 @@ final class ThemeManager: Codable {
     func selectTheme(_ theme: HUDTheme) {
         guard isThemeAvailable(theme) else { return }
         activeThemeId = theme.id
-        save()
+        saveToDefaults()
     }
 
     func purchaseFamily(_ family: ThemeStyleFamily) {
         purchasedFamilies.insert(family.rawValue)
-        save()
+        saveToDefaults()
     }
 
-    // MARK: - 持久化
+    // MARK: - UserDefaults 持久化
 
-    private func save() {
-        if let data = try? JSONEncoder().encode(self) {
-            UserDefaults.standard.set(data, forKey: "ThemeManager")
+    private func saveToDefaults() {
+        let defaults = UserDefaults.standard
+        defaults.set(activeThemeId, forKey: "theme_activeId")
+        defaults.set(Array(purchasedFamilies), forKey: "theme_purchased")
+        let trialData = trialRecords.mapValues { $0.timeIntervalSince1970 }
+        defaults.set(trialData, forKey: "theme_trials")
+    }
+
+    private func loadFromDefaults() {
+        let defaults = UserDefaults.standard
+        if let id = defaults.string(forKey: "theme_activeId") {
+            activeThemeId = id
         }
-    }
-
-    static func load() -> ThemeManager {
-        guard let data = UserDefaults.standard.data(forKey: "ThemeManager"),
-              let manager = try? JSONDecoder().decode(ThemeManager.self, from: data)
-        else {
-            return ThemeManager()
+        if let arr = defaults.stringArray(forKey: "theme_purchased") {
+            purchasedFamilies = Set(arr)
         }
-        return manager
-    }
-
-    // MARK: - Codable
-
-    enum CodingKeys: String, CodingKey {
-        case activeThemeId, purchasedFamilies, trialRecords
-    }
-
-    init() {}
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        activeThemeId = try container.decode(String.self, forKey: .activeThemeId)
-        purchasedFamilies = try container.decode(Set<String>.self, forKey: .purchasedFamilies)
-        trialRecords = try container.decode([String: Date].self, forKey: .trialRecords)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(activeThemeId, forKey: .activeThemeId)
-        try container.encode(purchasedFamilies, forKey: .purchasedFamilies)
-        try container.encode(trialRecords, forKey: .trialRecords)
+        if let dict = defaults.dictionary(forKey: "theme_trials") as? [String: Double] {
+            trialRecords = dict.mapValues { Date(timeIntervalSince1970: $0) }
+        }
     }
 }

@@ -3,7 +3,7 @@ import ARKit
 import RealityKit
 import Observation
 
-/// 空间感知引擎 — 使用 SceneReconstruction 检测周边物体并评估威胁
+@MainActor
 @Observable
 final class SpatialAwarenessEngine {
     @ObservationIgnored
@@ -18,7 +18,6 @@ final class SpatialAwarenessEngine {
     var isRunning = false
     var environmentMeshAnchors: [MeshAnchor] = []
 
-    // 扫描参数
     var scanRadius: Float = 30.0
     var updateInterval: TimeInterval = 0.1
 
@@ -41,7 +40,7 @@ final class SpatialAwarenessEngine {
         try await session.run([sceneReconstruction, worldTracking])
         isRunning = true
 
-        await processSceneUpdates()
+        Task { await processSceneUpdates() }
     }
 
     func stop() {
@@ -84,7 +83,6 @@ final class SpatialAwarenessEngine {
 
     // MARK: - 环境分析
 
-    /// 通过网格变化检测移动物体
     private func analyzeEnvironmentChanges(_ anchor: MeshAnchor) {
         let transform = anchor.originFromAnchorTransform
         let position = SIMD3<Float>(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
@@ -109,12 +107,9 @@ final class SpatialAwarenessEngine {
         updateRadarPoint(radarPoint)
     }
 
-    /// 基于网格特征分类物体
     private func classifyObject(anchor: MeshAnchor, distance: Float) -> DetectedObjectType {
-        let geometry = anchor.geometry
-        let vertexCount = geometry.vertices.count
+        let vertexCount = anchor.geometry.vertices.count
 
-        // 简化版分类 — 实际应使用 CoreML 模型
         if vertexCount > 5000 {
             return .vehicle
         } else if vertexCount > 1000 {
@@ -127,8 +122,6 @@ final class SpatialAwarenessEngine {
     }
 
     private func estimateVelocity(for anchor: MeshAnchor) -> Float {
-        // 通过比较前后帧的位置变化估算速度
-        // 实际实现需要维护历史帧数据
         return 0
     }
 

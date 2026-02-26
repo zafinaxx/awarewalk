@@ -1,7 +1,7 @@
 import SwiftUI
 import Observation
-import Combine
 
+@MainActor
 @Observable
 final class HUDViewModel {
     let awarenessEngine = SpatialAwarenessEngine()
@@ -17,7 +17,8 @@ final class HUDViewModel {
     var currentTime = Date()
     var batteryLevel = 85
 
-    private var timer: Timer?
+    @ObservationIgnored
+    private var timerTask: Task<Void, Never>?
 
     // MARK: - HUD 生命周期
 
@@ -73,13 +74,16 @@ final class HUDViewModel {
     // MARK: - 时间更新
 
     private func startTimeUpdates() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
-            self?.currentTime = Date()
+        timerTask = Task {
+            while !Task.isCancelled {
+                currentTime = Date()
+                try? await Task.sleep(for: .seconds(1))
+            }
         }
     }
 
     private func stopTimeUpdates() {
-        timer?.invalidate()
-        timer = nil
+        timerTask?.cancel()
+        timerTask = nil
     }
 }
