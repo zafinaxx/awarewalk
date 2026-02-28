@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 import StoreKit
 import Observation
 
@@ -47,7 +48,7 @@ final class SubscriptionManager {
         products.first { $0.id == id }
     }
 
-    // MARK: - 购买（无需 UIWindowScene）
+    // MARK: - 购买
 
     func purchase(_ product: Product) async -> Bool {
         isPurchasing = true
@@ -55,7 +56,14 @@ final class SubscriptionManager {
         defer { isPurchasing = false }
 
         do {
-            let result = try await product.purchase()
+            let result: Product.PurchaseResult
+
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                result = try await product.purchase(confirmIn: windowScene)
+            } else {
+                purchaseError = "No active window scene"
+                return false
+            }
 
             switch result {
             case .success(let verification):

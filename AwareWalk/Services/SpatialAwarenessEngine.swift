@@ -31,8 +31,8 @@ final class SpatialAwarenessEngine {
 
         // 先请求授权
         if SceneReconstructionProvider.isSupported {
-            let authResult = await session.requestAuthorization(for: [.sceneUnderstanding])
-            let sceneAuth = authResult[.sceneUnderstanding]
+            let authResult = await session.requestAuthorization(for: [.worldSensing])
+            let sceneAuth = authResult[.worldSensing]
             if sceneAuth == .allowed {
                 let sr = SceneReconstructionProvider()
                 self.sceneReconstruction = sr

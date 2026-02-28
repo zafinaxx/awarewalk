@@ -50,9 +50,7 @@ struct ImmersiveHUDView: View {
             }
         }
         .task {
-            do {
-                await viewModel.activateHUD()
-            }
+            await viewModel.activateHUD()
         }
         .onDisappear {
             viewModel.deactivateHUD()
