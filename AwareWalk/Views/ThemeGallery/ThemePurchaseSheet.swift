@@ -274,8 +274,8 @@ struct ProSubscriptionSheet: View {
                 .multilineTextAlignment(.center)
 
             HStack(spacing: 16) {
-                Link("Privacy Policy", destination: URL(string: "https://jingjingapp.github.io/awarewalk/privacy/")!)
-                Link("Terms of Use", destination: URL(string: "https://jingjingapp.github.io/awarewalk/terms/")!)
+                Link("Privacy Policy", destination: URL(string: "https://zafinaxx.github.io/awarewalk/privacy/")!)
+                Link("Terms of Use", destination: URL(string: "https://zafinaxx.github.io/awarewalk/terms/")!)
             }
             .font(.caption2)
         }

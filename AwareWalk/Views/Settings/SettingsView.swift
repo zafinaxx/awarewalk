@@ -126,8 +126,8 @@ struct SettingsView: View {
                     .foregroundStyle(.secondary)
             }
 
-            Link("settings_privacy", destination: URL(string: "https://jingjingapp.github.io/awarewalk/privacy/")!)
-            Link("settings_terms", destination: URL(string: "https://jingjingapp.github.io/awarewalk/terms/")!)
+            Link("settings_privacy", destination: URL(string: "https://zafinaxx.github.io/awarewalk/privacy/")!)
+            Link("settings_terms", destination: URL(string: "https://zafinaxx.github.io/awarewalk/terms/")!)
             Link("settings_support", destination: URL(string: "mailto:jingjingapp@outlook.com")!)
         }
     }
