@@ -9,8 +9,8 @@ enum AppConstants {
     enum Pricing {
         static let appPrice: Decimal = 12.99
         static let monthlySubscription: Decimal = 2.99
-        static let yearlySubscription: Decimal = 24.99
-        static let lifetimeUpgrade: Decimal = 79.99
+        static let yearlySubscription: Decimal = 12.99
+        static let proUnlock: Decimal = 12.99
         static let themePackPrice: Decimal = 2.99
     }
 
@@ -53,6 +53,7 @@ enum AppConstants {
         static let monthlyPro = "com.jingjing.AwareWalk.pro.monthly"
         static let yearlyPro = "com.jingjing.AwareWalk.pro.yearly"
         static let lifetimePro = "com.jingjing.AwareWalk.pro.lifetime"
+        static let proUnlock = "com.jingjing.AwareWalk.pro.unlock"
         static let themePrefix = "com.jingjing.AwareWalk.theme."
     }
 

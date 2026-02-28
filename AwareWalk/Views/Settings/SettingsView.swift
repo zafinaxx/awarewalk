@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(AppState.self) private var appState
+    @Environment(\.dismissWindow) private var dismissWindow
 
     var body: some View {
         @Bindable var state = appState
@@ -29,6 +30,13 @@ struct SettingsView: View {
                 aboutSection
             }
             .navigationTitle("settings_title")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("settings_done") {
+                        dismissWindow(id: "settings")
+                    }
+                }
+            }
         }
     }
 
@@ -76,6 +84,8 @@ struct SettingsView: View {
 
     // MARK: - 订阅
 
+    @State private var showingUpgrade = false
+
     private var subscriptionSection: some View {
         Section("settings_subscription") {
             HStack {
@@ -88,9 +98,13 @@ struct SettingsView: View {
 
             if !appState.isProUser {
                 Button("settings_upgrade_pro") {
-                    // 打开订阅页
+                    showingUpgrade = true
                 }
                 .foregroundStyle(.orange)
+                .sheet(isPresented: $showingUpgrade) {
+                    ProSubscriptionSheet()
+                        .environment(appState)
+                }
             }
 
             Button("settings_restore") {
@@ -112,9 +126,9 @@ struct SettingsView: View {
                     .foregroundStyle(.secondary)
             }
 
-            Link("settings_privacy", destination: URL(string: "https://example.com/privacy")!)
-            Link("settings_terms", destination: URL(string: "https://example.com/terms")!)
-            Link("settings_support", destination: URL(string: "mailto:support@example.com")!)
+            Link("settings_privacy", destination: URL(string: "https://jingjingapp.github.io/awarewalk/privacy/")!)
+            Link("settings_terms", destination: URL(string: "https://jingjingapp.github.io/awarewalk/terms/")!)
+            Link("settings_support", destination: URL(string: "mailto:jingjingapp@outlook.com")!)
         }
     }
 }

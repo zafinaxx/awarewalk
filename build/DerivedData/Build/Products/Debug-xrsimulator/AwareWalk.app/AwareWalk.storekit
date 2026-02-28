@@ -1,0 +1,138 @@
+{
+  "identifier" : "9B2C4F8A-1234-5678-ABCD-AWAREWALK001",
+  "type" : "local",
+  "version" : 3,
+  "subscriptionGroups" : [
+    {
+      "id" : "AwareWalkPro",
+      "localizations" : [
+        {
+          "description" : "Unlock all themes and advanced features",
+          "displayName" : "AwareWalk Pro",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "全テーマと高度な機能をアンロック",
+          "displayName" : "AwareWalk Pro",
+          "locale" : "ja"
+        },
+        {
+          "description" : "모든 테마와 고급 기능 잠금 해제",
+          "displayName" : "AwareWalk Pro",
+          "locale" : "ko"
+        }
+      ],
+      "name" : "AwareWalk Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "2.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "MONTHLY_001",
+          "introductoryOffer" : {
+            "displayPrice" : "0.99",
+            "internalID" : "INTRO_MONTHLY",
+            "paymentMode" : "payAsYouGo",
+            "numberOfPeriods" : 1,
+            "subscriptionPeriod" : "P1M"
+          },
+          "localizations" : [
+            {
+              "description" : "Full access to all themes and features",
+              "displayName" : "Monthly",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "全テーマ・全機能へのフルアクセス",
+              "displayName" : "月額プラン",
+              "locale" : "ja"
+            },
+            {
+              "description" : "모든 테마 및 기능에 대한 전체 액세스",
+              "displayName" : "월간 플랜",
+              "locale" : "ko"
+            }
+          ],
+          "productID" : "com.jingjing.AwareWalk.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Monthly",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "24.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "YEARLY_001",
+          "introductoryOffer" : {
+            "displayPrice" : "9.99",
+            "internalID" : "INTRO_YEARLY",
+            "paymentMode" : "payAsYouGo",
+            "numberOfPeriods" : 1,
+            "subscriptionPeriod" : "P1Y"
+          },
+          "localizations" : [
+            {
+              "description" : "Best value — save 30% vs monthly",
+              "displayName" : "Yearly",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "最もお得 — 月額より30%節約",
+              "displayName" : "年額プラン",
+              "locale" : "ja"
+            },
+            {
+              "description" : "최고 가치 — 월간 대비 30% 절약",
+              "displayName" : "연간 플랜",
+              "locale" : "ko"
+            }
+          ],
+          "productID" : "com.jingjing.AwareWalk.pro.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Pro Yearly",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "products" : [
+    {
+      "displayPrice" : "79.99",
+      "familyShareable" : false,
+      "internalID" : "LIFETIME_001",
+      "localizations" : [
+        {
+          "description" : "One-time purchase — lifetime access to all features",
+          "displayName" : "Lifetime Pro",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "一度の購入で全機能に永久アクセス",
+          "displayName" : "永久ライセンス",
+          "locale" : "ja"
+        },
+        {
+          "description" : "한 번 구매로 모든 기능에 영구 액세스",
+          "displayName" : "평생 라이선스",
+          "locale" : "ko"
+        }
+      ],
+      "productID" : "com.jingjing.AwareWalk.pro.lifetime",
+      "referenceName" : "Pro Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "AwareWalk",
+    "_developerTeamID" : "BRR72S7458",
+    "_failTransactionsEnabled" : false,
+    "_lastCheckedDate" : null,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : []
+  }
+}

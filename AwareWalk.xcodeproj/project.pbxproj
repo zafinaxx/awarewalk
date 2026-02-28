@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		1F3BA07ED2F5EA8284BD10BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D8E14C9EEC496AD44025F /* Constants.swift */; };
 		26EFD99CBE58F6FE2E280B45 /* NavigationPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07126443E4D19D32733D3EA /* NavigationPanel.swift */; };
 		27E09684135278230EE616C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737FD92AA16F554D6526347B /* SettingsView.swift */; };
+		2C528ADE1B248C0A0BAF6691 /* AwareWalk.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 2BA2C5788167B48B98E8BA98 /* AwareWalk.storekit */; };
 		3B8C99F9F299A925B2123ACB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F3FD47A9F708B228783B87 /* ContentView.swift */; };
 		40630E7971519D05525A7EC9 /* HUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF125F1868E0589A418E158 /* HUDViewModel.swift */; };
 		57CF59EE3346C655BE8C0E36 /* ThemeLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15B12B8354B75FB836A41C /* ThemeLibrary.swift */; };
@@ -29,6 +30,7 @@
 		B9F6DF4463719BCB5BE6733F /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B110BED7B48F342B72EF3 /* ThemeManager.swift */; };
 		BE5B25B8A39119869E400159 /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA6C6DB30F126B1AFB97576 /* NavigationState.swift */; };
 		D1DA48BD8C82D677899742CD /* HUDTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A60C62DD9F7D6C7CF551CA /* HUDTheme.swift */; };
+		E1C563ACD57CC698414B4A0B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E92C1A3A14A8D746C58DB44D /* PrivacyInfo.xcprivacy */; };
 		E40F69FC4776B320C6486B5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FCD9F51068EFE374FB41F32 /* Assets.xcassets */; };
 		E98AC0814C5B2AA348B24F42 /* ThemeGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E416F0995E642DA6291EA85 /* ThemeGalleryView.swift */; };
 		F6F44FE4B9C8F039B4F2930F /* SpatialAwarenessEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E8975023038E1A0505DA1 /* SpatialAwarenessEngine.swift */; };
@@ -39,12 +41,13 @@
 /* Begin PBXFileReference section */
 		092E919E78661CFCC9D63D21 /* HUDCompositeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDCompositeView.swift; sourceTree = "<group>"; };
 		23F70073ED0C614E6D5681B8 /* InfoBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBar.swift; sourceTree = "<group>"; };
+		2BA2C5788167B48B98E8BA98 /* AwareWalk.storekit */ = {isa = PBXFileReference; path = AwareWalk.storekit; sourceTree = "<group>"; };
 		306F31DFE354ED42306FF900 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3371A1DFD8D2C7D5B261BF4B /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		3DC100055ABADDB4C6C9AA8C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		43FB597376BC195FADE842E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D5519386CC18F3B288AC44F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
-		5714CF1E409D151C0D942A8E /* AwareWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwareWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5714CF1E409D151C0D942A8E /* AwareWalk.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AwareWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA6C6DB30F126B1AFB97576 /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
 		5E416F0995E642DA6291EA85 /* ThemeGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeGalleryView.swift; sourceTree = "<group>"; };
 		6FF125F1868E0589A418E158 /* HUDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDViewModel.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		E07126443E4D19D32733D3EA /* NavigationPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPanel.swift; sourceTree = "<group>"; };
 		E1EB89D802E7E0AFA80F93F1 /* AlertOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertOverlay.swift; sourceTree = "<group>"; };
 		E4FB0A7113E381091C7E7F5F /* AwareWalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwareWalkApp.swift; sourceTree = "<group>"; };
+		E92C1A3A14A8D746C58DB44D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F09F632890895F828E086FF0 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		F232CB97483499C947A8BFD4 /* RadarPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarPoint.swift; sourceTree = "<group>"; };
 		F93242C15CFCBF2F5FE6DF72 /* AlertLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertLevel.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				7FCD9F51068EFE374FB41F32 /* Assets.xcassets */,
+				2BA2C5788167B48B98E8BA98 /* AwareWalk.storekit */,
+				E92C1A3A14A8D746C58DB44D /* PrivacyInfo.xcprivacy */,
 				385A1DB2C93F4DA130232D84 /* Localizations */,
 			);
 			path = Resources;
@@ -286,9 +292,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					AEE0012D202CCFD88109ED21 = {
+						DevelopmentTeam = BRR72S7458;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -305,6 +312,7 @@
 			);
 			mainGroup = F01197D3DF1E6B1B71C3B0BE;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -319,7 +327,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40F69FC4776B320C6486B5A /* Assets.xcassets in Resources */,
+				2C528ADE1B248C0A0BAF6691 /* AwareWalk.storekit in Resources */,
 				5FAB20869CF918274B11AB80 /* Localizable.strings in Resources */,
+				E1C563ACD57CC698414B4A0B /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BRR72S7458;
 				INFOPLIST_FILE = AwareWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -395,7 +406,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -429,10 +439,8 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = BRR72S7458;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -453,7 +461,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -464,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BRR72S7458;
 				INFOPLIST_FILE = AwareWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -481,7 +489,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -515,10 +522,8 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = BRR72S7458;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -532,7 +537,6 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;

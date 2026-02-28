@@ -1,0 +1,23 @@
+{
+  "/Users/jingjing/AwareWalk/AwareWalk/Models/AlertLevel.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertLevel.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertLevel.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertLevel.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertLevel.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertLevel.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Services/AlertManager.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertManager.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertManager.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertManager.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertManager.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertManager.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Views/HUD/AlertOverlay.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertOverlay.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertOverlay.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertOverlay.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertOverlay.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AlertOverlay.swiftdeps"
+  }
+}

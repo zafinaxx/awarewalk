@@ -5,7 +5,7 @@ import Observation
 
 @MainActor
 @Observable
-final class NavigationService: NSObject, @preconcurrency CLLocationManagerDelegate {
+final class NavigationService: NSObject, CLLocationManagerDelegate {
     @ObservationIgnored
     private let locationManager = CLLocationManager()
     @ObservationIgnored
@@ -146,8 +146,7 @@ final class NavigationService: NSObject, @preconcurrency CLLocationManagerDelega
     }
 
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        let authorized = manager.authorizationStatus == .authorizedWhenInUse ||
-                         manager.authorizationStatus == .authorizedAlways
+        let authorized = manager.authorizationStatus == .authorizedWhenInUse
         Task { @MainActor in
             locationAuthorized = authorized
         }

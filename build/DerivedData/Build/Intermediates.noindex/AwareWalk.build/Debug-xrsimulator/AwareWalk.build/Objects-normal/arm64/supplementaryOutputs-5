@@ -1,0 +1,23 @@
+{
+  "/Users/jingjing/AwareWalk/AwareWalk/Models/NavigationState.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationState.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationState.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationState.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationState.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationState.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Services/NavigationService.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationService.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationService.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationService.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationService.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationService.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Views/HUD/NavigationPanel.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationPanel.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationPanel.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationPanel.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationPanel.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/NavigationPanel.swiftdeps"
+  }
+}

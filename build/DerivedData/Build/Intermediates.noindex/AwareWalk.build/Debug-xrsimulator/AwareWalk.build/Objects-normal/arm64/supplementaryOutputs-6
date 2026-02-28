@@ -1,0 +1,23 @@
+{
+  "/Users/jingjing/AwareWalk/AwareWalk/Models/RadarPoint.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarPoint.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarPoint.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarPoint.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarPoint.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarPoint.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Views/HUD/RadarView.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarView.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarView.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarView.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarView.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/RadarView.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Views/Onboarding/OnboardingView.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/OnboardingView.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/OnboardingView.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/OnboardingView.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/OnboardingView.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/OnboardingView.swiftdeps"
+  }
+}

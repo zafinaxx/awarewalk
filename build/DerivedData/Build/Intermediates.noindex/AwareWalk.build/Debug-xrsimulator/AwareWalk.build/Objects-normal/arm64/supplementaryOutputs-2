@@ -1,0 +1,23 @@
+{
+  "/Users/jingjing/AwareWalk/AwareWalk/App/AppState.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AppState.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AppState.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AppState.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AppState.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AppState.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/App/AwareWalkApp.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AwareWalkApp.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AwareWalkApp.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AwareWalkApp.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AwareWalkApp.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/AwareWalkApp.swiftdeps"
+  },
+  "/Users/jingjing/AwareWalk/AwareWalk/Support/Constants.swift" : {
+    "const-values" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/Constants.swiftconstvalues",
+    "dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/Constants.d",
+    "diagnostics" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/Constants.dia",
+    "object" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/Constants.o",
+    "swift-dependencies" : "/Users/jingjing/AwareWalk/build/DerivedData/Build/Intermediates.noindex/AwareWalk.build/Debug-xrsimulator/AwareWalk.build/Objects-normal/arm64/Constants.swiftdeps"
+  }
+}

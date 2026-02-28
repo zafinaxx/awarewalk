@@ -172,3 +172,8 @@
 "onboarding_back" = "戻る";
 "onboarding_next" = "次へ";
 "onboarding_start" = "始めましょう";
+
+// MARK: - Extra
+"settings_done" = "完了";
+"hud_error_message" = "HUDを起動できません。シミュレーターでは没入型スペースがサポートされていない場合があります。";
+"hud_cancelled_message" = "HUDの起動がキャンセルされました。もう一度お試しください。";

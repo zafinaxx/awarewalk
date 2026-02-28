@@ -24,16 +24,20 @@ final class HUDViewModel {
 
     func activateHUD() async {
         isHUDActive = true
+        print("[AwareWalk] HUD ViewModel 激活中...")
+
         navigationService.requestPermission()
         navigationService.startLocationUpdates()
 
         do {
             try await awarenessEngine.start()
+            print("[AwareWalk] 空间感知引擎已启动 (isRunning: \(awarenessEngine.isRunning))")
         } catch {
-            print("空间感知启动失败: \(error)")
+            print("[AwareWalk] 空间感知启动失败（不影响 HUD 显示）: \(error)")
         }
 
         startTimeUpdates()
+        print("[AwareWalk] HUD ViewModel 激活完成")
     }
 
     func deactivateHUD() {

@@ -27,20 +27,45 @@ final class SpatialAwarenessEngine {
         let session = ARKitSession()
         self.session = session
 
-        let sceneReconstruction = SceneReconstructionProvider()
-        let worldTracking = WorldTrackingProvider()
-        self.sceneReconstruction = sceneReconstruction
-        self.worldTracking = worldTracking
+        var providers: [any DataProvider] = []
 
-        guard SceneReconstructionProvider.isSupported,
-              WorldTrackingProvider.isSupported else {
-            throw AwarenessError.notSupported
+        // 先请求授权
+        if SceneReconstructionProvider.isSupported {
+            let authResult = await session.requestAuthorization(for: [.sceneUnderstanding])
+            let sceneAuth = authResult[.sceneUnderstanding]
+            if sceneAuth == .allowed {
+                let sr = SceneReconstructionProvider()
+                self.sceneReconstruction = sr
+                providers.append(sr)
+            } else {
+                print("[AwareWalk] SceneReconstruction 授权被拒绝: \(String(describing: sceneAuth))")
+            }
+        } else {
+            print("[AwareWalk] SceneReconstructionProvider 不支持，跳过")
         }
 
-        try await session.run([sceneReconstruction, worldTracking])
-        isRunning = true
+        if WorldTrackingProvider.isSupported {
+            let wt = WorldTrackingProvider()
+            self.worldTracking = wt
+            providers.append(wt)
+        } else {
+            print("[AwareWalk] WorldTrackingProvider 不支持，跳过")
+        }
 
-        Task { await processSceneUpdates() }
+        if providers.isEmpty {
+            print("[AwareWalk] 无可用 ARKit Provider，以演示模式运行")
+            isRunning = true
+            return
+        }
+
+        do {
+            try await session.run(providers)
+            isRunning = true
+            Task { await processSceneUpdates() }
+        } catch {
+            print("[AwareWalk] ARKit session.run 失败: \(error)，以演示模式运行")
+            isRunning = true
+        }
     }
 
     func stop() {
@@ -55,15 +80,19 @@ final class SpatialAwarenessEngine {
     private func processSceneUpdates() async {
         guard let sceneReconstruction else { return }
 
-        for await update in sceneReconstruction.anchorUpdates {
-            switch update.event {
-            case .added, .updated:
-                processMeshAnchor(update.anchor)
-            case .removed:
-                removeMeshAnchor(update.anchor)
+        do {
+            for await update in sceneReconstruction.anchorUpdates {
+                guard isRunning else { break }
+                switch update.event {
+                case .added, .updated:
+                    processMeshAnchor(update.anchor)
+                case .removed:
+                    removeMeshAnchor(update.anchor)
+                }
+                evaluateThreats()
             }
-
-            evaluateThreats()
+        } catch {
+            print("[AwareWalk] 场景更新处理异常: \(error)")
         }
     }
 

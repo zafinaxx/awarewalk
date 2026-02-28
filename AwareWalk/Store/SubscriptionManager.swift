@@ -8,9 +8,12 @@ final class SubscriptionManager {
     var isSubscribed = false
     var subscriptionType: SubscriptionType = .none
     var expirationDate: Date?
+    var products: [Product] = []
+    var isPurchasing = false
+    var purchaseError: String?
 
     enum SubscriptionType: String, CaseIterable {
-        case none, monthly, yearly, lifetime
+        case none, monthly, yearly, lifetime, unlock
     }
 
     // MARK: - Product IDs
@@ -18,10 +21,11 @@ final class SubscriptionManager {
     static let monthlyID = "com.jingjing.AwareWalk.pro.monthly"
     static let yearlyID = "com.jingjing.AwareWalk.pro.yearly"
     static let lifetimeID = "com.jingjing.AwareWalk.pro.lifetime"
+    static let unlockID = "com.jingjing.AwareWalk.pro.unlock"
     static let themeFamilyPrefix = "com.jingjing.AwareWalk.theme."
 
     static var allProductIDs: Set<String> {
-        [monthlyID, yearlyID, lifetimeID]
+        [monthlyID, yearlyID, lifetimeID, unlockID]
     }
 
     init() {
@@ -30,35 +34,60 @@ final class SubscriptionManager {
 
     // MARK: - 加载产品
 
-    func loadProducts() async throws -> [Product] {
-        try await Product.products(for: Self.allProductIDs)
+    func loadProducts() async {
+        do {
+            products = try await Product.products(for: Self.allProductIDs)
+            print("[AwareWalk] 已加载 \(products.count) 个产品")
+        } catch {
+            print("[AwareWalk] 加载产品失败: \(error)")
+        }
     }
 
-    // MARK: - 购买
+    func product(for id: String) -> Product? {
+        products.first { $0.id == id }
+    }
 
-    func purchase(_ product: Product, in scene: UIWindowScene) async throws -> Bool {
-        let result = try await product.purchase(confirmIn: scene)
+    // MARK: - 购买（无需 UIWindowScene）
 
-        switch result {
-        case .success(let verification):
-            let transaction = try checkVerified(verification)
-            applyTransaction(transaction)
-            await transaction.finish()
-            return true
-        case .userCancelled, .pending:
-            return false
-        @unknown default:
+    func purchase(_ product: Product) async -> Bool {
+        isPurchasing = true
+        purchaseError = nil
+        defer { isPurchasing = false }
+
+        do {
+            let result = try await product.purchase()
+
+            switch result {
+            case .success(let verification):
+                let transaction = try checkVerified(verification)
+                applyTransaction(transaction)
+                await transaction.finish()
+                return true
+            case .userCancelled:
+                return false
+            case .pending:
+                return false
+            @unknown default:
+                return false
+            }
+        } catch {
+            purchaseError = error.localizedDescription
+            print("[AwareWalk] 购买失败: \(error)")
             return false
         }
     }
 
-    // MARK: - 购买主题族
+    // MARK: - 按 ID 购买
 
-    func purchaseThemeFamily(_ familyId: String, in scene: UIWindowScene) async throws -> Bool {
-        let productId = Self.themeFamilyPrefix + familyId
-        let products = try await Product.products(for: [productId])
-        guard let product = products.first else { return false }
-        return try await purchase(product, in: scene)
+    func purchaseByID(_ productID: String) async -> Bool {
+        if products.isEmpty {
+            await loadProducts()
+        }
+        guard let product = product(for: productID) else {
+            purchaseError = "Product not found"
+            return false
+        }
+        return await purchase(product)
     }
 
     // MARK: - 恢复购买
@@ -107,8 +136,14 @@ final class SubscriptionManager {
             isSubscribed = true
             subscriptionType = .lifetime
             expirationDate = nil
+        case Self.unlockID:
+            isSubscribed = true
+            subscriptionType = .unlock
+            expirationDate = nil
         default:
-            break
+            if transaction.productID.hasPrefix(Self.themeFamilyPrefix) {
+                isSubscribed = true
+            }
         }
         saveToDefaults()
     }

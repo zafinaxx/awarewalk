@@ -78,10 +78,13 @@ struct ThemePurchaseSheet: View {
         Button {
             Task {
                 isPurchasing = true
-                // StoreKit 购买流程
-                appState.themeManager.purchaseFamily(family)
+                let productID = SubscriptionManager.themeFamilyPrefix + family.rawValue
+                let success = await appState.subscriptionManager.purchaseByID(productID)
+                if success {
+                    appState.themeManager.purchaseFamily(family)
+                }
                 isPurchasing = false
-                dismiss()
+                if success { dismiss() }
             }
         } label: {
             HStack {
@@ -158,6 +161,10 @@ struct ProSubscriptionSheet: View {
     @Environment(AppState.self) private var appState
     @Environment(\.dismiss) private var dismiss
 
+    @State private var purchaseInProgress: String?
+    @State private var showError = false
+    @State private var errorMessage = ""
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -165,6 +172,7 @@ struct ProSubscriptionSheet: View {
                     crownHeader
                     benefitsList
                     pricingOptions
+                    termsLinks
                 }
                 .padding(24)
             }
@@ -173,6 +181,14 @@ struct ProSubscriptionSheet: View {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("cancel") { dismiss() }
                 }
+            }
+            .alert("Error", isPresented: $showError) {
+                Button("OK") {}
+            } message: {
+                Text(errorMessage)
+            }
+            .task {
+                await appState.subscriptionManager.loadProducts()
             }
         }
     }
@@ -217,32 +233,67 @@ struct ProSubscriptionSheet: View {
                 period: String(localized: "price_per_month"),
                 isPopular: false
             ) {
-                // StoreKit 订阅
+                purchaseProduct(SubscriptionManager.monthlyID)
             }
 
             PricingCard(
                 title: String(localized: "price_yearly"),
-                price: "$24.99",
+                price: "$12.99",
                 period: String(localized: "price_per_year"),
                 isPopular: true,
                 badge: String(localized: "price_save_30")
             ) {
-                // StoreKit 订阅
+                purchaseProduct(SubscriptionManager.yearlyID)
             }
 
             PricingCard(
                 title: String(localized: "price_lifetime"),
-                price: "$79.99",
+                price: "$12.99",
                 period: String(localized: "price_once"),
                 isPopular: false
             ) {
-                // StoreKit 购买
+                purchaseProduct(SubscriptionManager.unlockID)
             }
 
-            Text("price_restore")
-                .font(.caption)
+            Button {
+                Task { await appState.subscriptionManager.restorePurchases() }
+            } label: {
+                Text("price_restore")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.top, 8)
+        }
+    }
+
+    private var termsLinks: some View {
+        VStack(spacing: 8) {
+            Text("Subscriptions auto-renew unless cancelled 24h before period end. Manage in Settings > Apple ID > Subscriptions.")
+                .font(.caption2)
                 .foregroundStyle(.secondary)
-                .padding(.top, 8)
+                .multilineTextAlignment(.center)
+
+            HStack(spacing: 16) {
+                Link("Privacy Policy", destination: URL(string: "https://jingjingapp.github.io/awarewalk/privacy/")!)
+                Link("Terms of Use", destination: URL(string: "https://jingjingapp.github.io/awarewalk/terms/")!)
+            }
+            .font(.caption2)
+        }
+        .padding(.top, 8)
+    }
+
+    private func purchaseProduct(_ productID: String) {
+        guard purchaseInProgress == nil else { return }
+        purchaseInProgress = productID
+        Task {
+            let success = await appState.subscriptionManager.purchaseByID(productID)
+            purchaseInProgress = nil
+            if success {
+                dismiss()
+            } else if let error = appState.subscriptionManager.purchaseError {
+                errorMessage = error
+                showError = true
+            }
         }
     }
 }

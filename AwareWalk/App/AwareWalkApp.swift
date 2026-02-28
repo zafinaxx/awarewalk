@@ -9,8 +9,14 @@ struct AwareWalkApp: App {
         WindowGroup {
             ContentView()
                 .environment(appState)
+                .task {
+                    await appState.subscriptionManager.loadProducts()
+                    await appState.subscriptionManager.restorePurchases()
+                    Task { await appState.subscriptionManager.listenForTransactions() }
+                }
         }
-        .defaultSize(width: 600, height: 400)
+        .windowStyle(.plain)
+        .defaultSize(width: 1400, height: 900)
 
         WindowGroup(id: "theme-gallery") {
             ThemeGalleryView()

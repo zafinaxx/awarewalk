@@ -172,3 +172,8 @@
 "onboarding_back" = "Back";
 "onboarding_next" = "Next";
 "onboarding_start" = "Get Started";
+
+// MARK: - Extra
+"settings_done" = "Done";
+"hud_error_message" = "Unable to start HUD. Immersive spaces may not be supported in the simulator.";
+"hud_cancelled_message" = "HUD launch was cancelled. Please try again.";

@@ -3,6 +3,7 @@ import SwiftUI
 /// 主题画廊 — 展示所有风格族和主题，支持购买和试用
 struct ThemeGalleryView: View {
     @Environment(AppState.self) private var appState
+    @Environment(\.dismissWindow) private var dismissWindow
     @State private var selectedFamily: ThemeStyleFamily = .apple
     @State private var showingPurchase = false
     @State private var purchaseTarget: ThemeStyleFamily?
@@ -18,6 +19,11 @@ struct ThemeGalleryView: View {
             }
             .navigationTitle("theme_gallery_title")
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("settings_done") {
+                        dismissWindow(id: "theme-gallery")
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     if !appState.isProUser {
                         Button {
